@@ -1,6 +1,7 @@
 package org.fundacionjala.app.water;
 
 import org.fundacionjala.app.water.console.util.InputReader;
+import org.fundacionjala.app.water.console.util.UIMemberRegister;
 import org.fundacionjala.app.water.console.util.WaterUIConsumption;
 import org.fundacionjala.app.water.console.util.WaterUIDebtCheck;
 import org.fundacionjala.app.water.service.WaterBillingService;
@@ -31,6 +32,9 @@ public class Menu {
 
                 break;
             case '5':
+                registerMember();
+                break;
+            case '6':
                 shouldExit = true;
                 break;
             default:
@@ -52,6 +56,11 @@ public class Menu {
         UI.process();
     }
 
+    private void registerMember() {
+        UIMemberRegister UI = new UIMemberRegister(billingService);
+        UI.process();
+    }
+
     private void showMainMenu() {
         System.out.println("");
         System.out.println("Cooperativa Local de Agua");
@@ -60,7 +69,8 @@ public class Menu {
         System.out.println("2. Consultar deuda de socio");
         System.out.println("3. Consultar detalles del socio");
         System.out.println("4. Realizar cobro");
-        System.out.println("5. Exit");
+        System.out.println("5. Registrar miembro");
+        System.out.println("6. Exit");
         System.out.println("======================================");
     }
 }
