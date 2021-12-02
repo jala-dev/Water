@@ -1,24 +1,21 @@
 package org.fundacionjala.app.water.console.util;
 
-import java.util.Date;
-
-import org.fundacionjala.app.water.model.ChargingSystem;
+import org.fundacionjala.app.water.service.WaterBillingService;
 
 public class WaterUIConsumption {
 
-    ChargingSystem localSystem;
+    WaterBillingService billingService;
 
-    public WaterUIConsumption(ChargingSystem system) {
-        this.localSystem = system;
+    public WaterUIConsumption(WaterBillingService service) {
+        this.billingService = service;
     }
 
-    public void Register()
-    {        
+    public void Register() {
         System.out.println("======================================");
         System.out.println("1. Ingrese el codigo del socio: ");
         int id = Integer.parseInt(InputReader.readLine());
         System.out.println("2. Ingrese el valor del consumo: ");
-        int waterConsumption = Integer.parseInt(InputReader.readLine());                
-        localSystem.registerWaterComsumption(id, waterConsumption);
+        int waterConsumption = Integer.parseInt(InputReader.readLine());
+        billingService.registerWaterConsumption(id, waterConsumption);
     }
 }

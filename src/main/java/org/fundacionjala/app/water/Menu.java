@@ -1,16 +1,16 @@
 package org.fundacionjala.app.water;
 
-import org.fundacionjala.app.water.model.ChargingSystem;
 import org.fundacionjala.app.water.console.util.InputReader;
 import org.fundacionjala.app.water.console.util.WaterUIConsumption;
 import org.fundacionjala.app.water.console.util.WaterUIDebtCheck;
+import org.fundacionjala.app.water.service.WaterBillingService;
 
 public class Menu {
 
-    ChargingSystem system;
+    WaterBillingService billingService;
 
     public Menu() {
-        this.system = new ChargingSystem("Cooperativa Local de Agua");
+        this.billingService = new WaterBillingService("Cooperativa Local de Agua");
     }
 
     public boolean process() {
@@ -25,10 +25,10 @@ public class Menu {
                 ShowDebtAmount();
                 break;
             case '3':
-                
+
                 break;
             case '4':
-                
+
                 break;
             case '5':
                 shouldExit = true;
@@ -43,23 +43,23 @@ public class Menu {
     }
 
     private void RegisterConsumption() {
-        WaterUIConsumption UI = new WaterUIConsumption(system);
+        WaterUIConsumption UI = new WaterUIConsumption(billingService);
         UI.Register();
     }
 
     private void ShowDebtAmount() {
-        WaterUIDebtCheck UI = new WaterUIDebtCheck(system);
+        WaterUIDebtCheck UI = new WaterUIDebtCheck(billingService);
         UI.process();
     }
-    
+
     private void showMainMenu() {
         System.out.println("");
-        System.out.println("Cooperativa Local de Agua");        
+        System.out.println("Cooperativa Local de Agua");
         System.out.println("======================================");
         System.out.println("1. Registrar consumo de agua");
         System.out.println("2. Consultar deuda de socio");
-        System.out.println("3. Consultar informacion del socio");
-        System.out.println("4. Realizar cobro");        
+        System.out.println("3. Consultar detalles del socio");
+        System.out.println("4. Realizar cobro");
         System.out.println("5. Exit");
         System.out.println("======================================");
     }

@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class InputReader {
     private static final String INPUT_CURSOR = "> ";
-    private static  final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    private InputReader() {}
+    private InputReader() {
+    }
 
     public static String readLine() {
         System.out.print(INPUT_CURSOR);

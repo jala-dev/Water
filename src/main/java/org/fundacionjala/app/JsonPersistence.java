@@ -1,13 +1,13 @@
 package org.fundacionjala.app;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.stream.JsonReader;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonIOException;
-import com.google.gson.stream.JsonReader;
 
 public class JsonPersistence {
     public static void main(String[] args) {

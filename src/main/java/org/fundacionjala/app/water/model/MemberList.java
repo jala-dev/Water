@@ -3,10 +3,10 @@ package org.fundacionjala.app.water.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberList {    
-    private final List<Member> members;
+public class MemberList {
+    private List<Member> members;
 
-    public MemberList() {        
+    public MemberList() {
         this.members = new ArrayList<>();
     }
 
@@ -16,6 +16,10 @@ public class MemberList {
     }
 
     public int getMemberID(String name) {
-        return 0;
+        return members.get(0).id;
+    }
+
+    public boolean isEmpty() {
+        return members.isEmpty();
     }
 }
