@@ -1,49 +1,48 @@
 # Before you start:
 * Try not to read ahead.
 * Do one task at a time. The trick is to learn to work incrementally.
-* Make sure you only test for correct inputs, there is no need to test for invalid inputs for this kata.
+* Make sure you only test for correct inputs, there is no need to test for invalid inputs.
+* Apply any good practice you consider necesary in the code.
 * Test First!
 
 # Description
-Quiz Builder is a console application that allows you to create and fill quizzes. This application is currently in development, so some of its features are already implemented but other need to be implemented.
+Water is a simple console application for the collection of water consumption for cooperatives in rural areas. The application is currently under development and has a beta version.
+We need your help to complete the functionalities and offer a complete user experience.
  
 ## Current features
- * Create quiz
-   * Supports the next kind of questions:
-     * Text
-     * Date
-     * Pick one option (similar to a radio input element in HTML)
-   * Each question type has its own associated validations, for example:
-     * The question type *TEXT* supports the validations *REQUIRED* and *MIN_LENGTH*
-   * Given a created quiz, it is possible to fill the values for its questions
+* Register consumption. The system records the water consumption of each partner in the system.  
+* Get current debt. The system can calculate the total amount owed for a particular member.  
 
 ## Pending features to implement
-### Question types
-1. Add support for a new question type called *NUMERIC*
-2. Associate the next validations *REQUIRED* and *MIN* to it.
-Remember that you need to convert the values to int
+* Consult details of the partner. Many users ask for a detail of their debt before paying. Implement the necessary support (UI and backend) to see all the consumption associated with a client and its total.
+  
+  1. Implement this new feature using the information currently available in the system.
+   
+* Make payment. We need to record the payment of consumption by a partner. Initially, only full payment of debts is allowed. Once paid, the consumptions must be marked as paid and not be considered in the calculation of the current debt.
+  
+  2. Implement this new feature using the information currently available in the system.
+   
+* Register member. We want register the members before to have consumptions. Implement this feature.
+  
+  3. Implement this new feature using the information currently available in the system.
+
 
 ### Validations
-You'll notice that several validations are implemented but they are not being applied.
+To have a robust application, we need to add certain controls to the information that we include in the system.
 
-3. Add the required code to apply validations when the user is filling the quiz.
-   
-4. Add support for new kind of validations for question's answer.
-   * Text validations
-     * Max length
-     * Only uppercase text
+  4.1. Member code. A member code always has to be positive and it be a value between 5000 and 5999.
+
+  4.2. Member name. A member name needs 4 chars as minimun length.
+
+  4.3. Consumption. The consumption always is positive values.
+
+5. If you have implemented the Member registration, validate that consumption always be associated to an already registered member.
      
-### Enhance the _Show Quiz_ menu action
-We want to enhance this action because currently the question information is not usefully,
-
-5. Enhance that logic to show the question title and answer.  REFACTORING
-
 ### Persistence
-Currently all the information is stored on memory, that means quizzes are lost after finishing the application. 
-Sometime ago, a member of the dev team did a research about persisting information in a JSON file, you can check and run the JsonPersistence.java file which was the result of the research.
+Currently all the information is stored on memory, that means data is lost after finishing the application. 
+Currently, the system does not save the information of the members and consumptions. 
 
-6. Given the JsonPersistence.java file, try to reuse that code to implement the quiz persistence in a JSON file and also load a quiz given a JSON file.
-   Don't forget to include the respective action menu for this.
+6. Implement a persistence module so that the information is always available when the application is started again.
 
 ### Menu
 We don't like how the action menu (Menu.java) is implemented, it has too much IFs; there should be a better way to implement it, 
@@ -54,15 +53,13 @@ We don't like how the action menu (Menu.java) is implemented, it has too much IF
 There are some unit tests that will help you during the refactoring.
 
 8. Include more scenarios. 
-9. Additionally, there are some features that are failing, please fix them and add the related tests.
-
 
 # Submit your task
 You have less than 3 hours for this assignment, the way to submit your work is:
  * If you have a github account, you can accept the invite the Jalasoft Trainers will send you. By accepting this invite you'll have your GitHub repository ready for you. Clone it and ensure to push your changes when your are ready.
  
  * If you are not familiar with Git repositories or you don't have an account, you can download the project from the next url:
- https://github.com/jala-dev/quiz-builder/archive/refs/heads/master.zip
+ https://github.com/jala-dev/Water/archive/refs/heads/main.zip
  
  To submit your changes, you can zip your project folder and send it to jose.ecos@fundacion-jala.org and felipe.canaviri@fundacion-jala.org before the time limit.  
  **NOTE:** Please make sure only include project files. 
